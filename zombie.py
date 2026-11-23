@@ -66,7 +66,12 @@ class Zombie:
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
-        return self.x - 100, self.y - 100, self.x + 100, self.y + 100
+        a = 0
+        if self.hp == 2:
+            a = self.x - 100, self.y - 100, self.x + 100, self.y + 100
+        else:
+            a = self.x - 100/2, self.y - 100/2, self.x + 100/2, self.y + 100/2
+        return a
 
     def handle_collision(self, group, other):
         if group == 'zombie:ball':
