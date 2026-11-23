@@ -46,15 +46,23 @@ class Zombie:
             self.dir = 1
         self.x = clamp(MIN_X, self.x, MAX_X)
 
+
         if self.hp <= 0:
             game_world.remove_object(self)
 
     def draw(self):
         image = Zombie.images['Walk'][int(self.frame)]
-        if self.dir < 0:
-            image.composite_draw(0, 'h', self.x, self.y, 200, 200)
+
+        if self.hp == 2:
+            if self.dir < 0:
+                image.composite_draw(0, 'h', self.x, self.y, 200, 200)
+            else:
+                image.draw(self.x, self.y, 200, 200)
         else:
-            image.draw(self.x, self.y, 200, 200)
+            if self.dir < 0:
+                image.composite_draw(0, 'h', self.x, self.y, 200, 200)
+            else:
+                image.draw(self.x, self.y, 100, 100)
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
