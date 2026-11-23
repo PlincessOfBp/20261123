@@ -60,7 +60,7 @@ class Zombie:
                 image.draw(self.x, self.y, 200, 200)
         else:
             if self.dir < 0:
-                image.composite_draw(0, 'h', self.x, self.y, 200, 200)
+                image.composite_draw(0, 'h', self.x, self.y, 100, 100)
             else:
                 image.draw(self.x, self.y, 100, 100)
         draw_rectangle(*self.get_bb())
@@ -76,4 +76,5 @@ class Zombie:
     def handle_collision(self, group, other):
         if group == 'zombie:ball':
             self.hp -= 1
+            self.y -= 50
             print('좀비가 공에 닿음')
