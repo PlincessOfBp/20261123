@@ -46,6 +46,9 @@ class Zombie:
             self.dir = 1
         self.x = clamp(MIN_X, self.x, MAX_X)
 
+        if self.hp == 0:
+            game_world.remove_object(self)
+
     def draw(self):
         image = Zombie.images['Walk'][int(self.frame)]
         if self.dir < 0:
@@ -59,4 +62,4 @@ class Zombie:
 
     def handle_collision(self, group, other):
         if group == 'zombie:ball':
-            hp -= 1
+            self.hp -= 1
