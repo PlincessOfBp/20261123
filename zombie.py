@@ -63,3 +63,4 @@ class Zombie:
     def handle_collision(self, group, other):
         if group == 'zombie:ball':
             self.hp -= 1
+            print('좀비가 공에 닿음')
