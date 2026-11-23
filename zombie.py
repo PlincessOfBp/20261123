@@ -46,7 +46,7 @@ class Zombie:
             self.dir = 1
         self.x = clamp(MIN_X, self.x, MAX_X)
 
-        if self.hp == 0:
+        if self.hp <= 0:
             game_world.remove_object(self)
 
     def draw(self):
