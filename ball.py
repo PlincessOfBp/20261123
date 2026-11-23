@@ -48,6 +48,6 @@ class Ball:
             game_world.remove_object(self)
         if group == 'grass:ball':
             self.stopped = True
-        if group == 'zombie:ball' and group != 'grass:ball':
+        elif group == 'zombie:ball' and group != 'grass:ball':
             game_world.remove_object(self)
             print('공이 좀비에 닿음')
