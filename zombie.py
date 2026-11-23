@@ -22,6 +22,7 @@ MIN_X, MAX_X = 800, 1600  # 좀비가 오가는 구간
 
 class Zombie:
     images = None
+    hp = 2
 
     def load_images(self):
         if Zombie.images is None:
@@ -57,4 +58,5 @@ class Zombie:
         return self.x - 100, self.y - 100, self.x + 100, self.y + 100
 
     def handle_collision(self, group, other):
-        pass
+        if group == 'zombie:ball':
+            hp -= 1
